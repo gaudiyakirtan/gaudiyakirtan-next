@@ -1,11 +1,9 @@
+import fs from 'fs';
+
 export async function getSongData(uid: string) {
-  console.log(uid)
   try {
-    let name = `songs/${uid}.json`
-    console.log(name)
-    const res = await fetch(name);
-    const data = await res.json();
-    return data;
+    const data = fs.readFileSync(`public/songs/${uid}.json`, 'utf-8');
+    return JSON.parse(data);
   } catch (error) {
     console.error('Error fetching song data:', error);
     return null;
