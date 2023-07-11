@@ -1,12 +1,13 @@
 import { getSongData, getSongs } from '../../../utils/apis/songData';
 import { Song } from '../../../utils/types/songs';
 
-export default function Page(params: any) {
+export default async function Page(params: any) {
   const uid = params.params.uid;
-  const getSongInfo = getSongData(uid);  
-  getSongInfo.then((data) => {
-    console.log(data);
-  });
+  const getSongInfo = await getSongData(uid);  
+  // getSongInfo.then((data) => {
+  //   console.log(data);
+  // });
+  console.log(getSongInfo);
 
   return (
     <div>
