@@ -16,7 +16,7 @@ export async function getSongs() {
     const data = await res.json();
     return data;
   } catch (error) {
-    // console.error('Error fetching song list:', error);
+    console.error('Error fetching song list:', error);
     return null;
   }
 }
